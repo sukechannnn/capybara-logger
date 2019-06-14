@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "capybara_logger"
+Bundler.require(:default, :development)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
