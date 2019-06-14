@@ -1,4 +1,4 @@
-require "capybara_logger/version"
+require 'capybara_logger/version'
 
 module CapybaraLogger
   # Your code goes here...
