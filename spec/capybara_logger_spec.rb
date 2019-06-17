@@ -5,10 +5,15 @@ RSpec.describe CapybaraLogger do
     expect(CapybaraLogger::VERSION).not_to be nil
   end
 
-  describe '', type: :feature do
-    it '' do
-      visit '/'
+  describe 'CapybaraLogger with Capybara', type: :feature do
+    before { visit '/' }
+
+    it '#visit' do
       expect(page).to have_title 'Test Site'
+    end
+
+    it '#find' do
+      find('input[name="text"]')
     end
   end
 end

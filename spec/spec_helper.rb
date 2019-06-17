@@ -1,6 +1,6 @@
 require 'bundler/setup'
 require 'capybara_logger'
-require 'capybara/rspec'
+require 'capybara'
 Bundler.require(:default, :development)
 require 'test_site.rb'
 
@@ -14,13 +14,17 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.order = :random
+
+  Kernel.srand config.seed
 end
 
 Capybara.app = TestSite.new
 Capybara.default_driver = :selenium
 Capybara.server = :webrick
-Capybara.server_port = 9292
-Capybara.app_host = 'http://localhost:9292'
+Capybara.server_port = 8080
+Capybara.app_host = 'http://localhost:8080'
 chrome_options = { args: %w[headless disable-gpu window-size=1680,1050] }
 
 Capybara.register_driver :selenium do |app|
