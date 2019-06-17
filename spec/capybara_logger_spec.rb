@@ -6,14 +6,31 @@ RSpec.describe CapybaraLogger do
   end
 
   describe 'CapybaraLogger with Capybara', type: :feature do
-    before { visit '/' }
+    using CapybaraLogger
 
-    it '#visit' do
-      expect(page).to have_title 'Test Site'
+    before do
+      @log = []
+      allow(CapybaraLogger::LOG).to receive(:info) do |log|
+        @log << log
+      end
+
+      @session = Capybara::Session.new(:selenium, TestSite)
     end
 
-    it '#find' do
-      find('input[name="text"]')
+    context '#visit' do
+      it do
+        @session.visit '/'
+        expect(@log).to contain_exactly('Capybara visit /')
+        expect(@session).to have_title 'Test Site'
+      end
+    end
+
+    context '#find' do
+      it do
+        @session.visit '/'
+        @session.find('input[name="text"]')
+        expect(@log).to contain_exactly('Capybara visit /', 'Capybara find input[name="text"]')
+      end
     end
   end
 end

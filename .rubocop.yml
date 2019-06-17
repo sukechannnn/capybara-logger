@@ -86,6 +86,10 @@ Naming/UncommunicativeMethodParamName:
 
 ##################### RSpec ##################################
 
+# RSpec let can not hold on instance of Capybara::Session
+RSpec/InstanceVariable:
+  Enabled: false
+
 # RSpec の `context do` を許可するかどうか
 # デフォルトだと `context '' do` にする必要があるが、ここは許可している
 RSpec/MissingExampleGroupArgument:
