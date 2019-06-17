@@ -40,4 +40,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance'
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'capybara'
+  spec.add_development_dependency 'selenium-webdriver'
+  spec.add_development_dependency 'sinatra'
+  spec.add_development_dependency 'sinatra-contrib'
 end
