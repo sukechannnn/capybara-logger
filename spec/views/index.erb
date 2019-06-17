@@ -6,5 +6,20 @@
   </head>
   <body>
     <h1>Test Site for CapybaraLogger</h1>
+
+    <h2>POST</h2>
+    <form class="" action="/" method="post">
+      <label for="text">text</label>
+      <input type="text" name="text" value="">
+      <input type="submit" value="POST">
+    </form>
+    <p><%= @posted_text %></p>
+
+    <h2>File Upload</h2>
+
+    <form class="" action="/file" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Upload File">
+    </form>
   </body>
 </html>
